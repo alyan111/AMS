@@ -1928,6 +1928,13 @@ class Projects extends CI_Controller
 						);
 						$this->projects_model->create_project_users($user_data);
 					}
+
+					push_notifications('project', [
+						'saas_id' => $this->session->userdata('saas_id'),
+						'client_id' => $this->input->post('users'),
+						'users' => $this->input->post('users')
+					]);
+
 					$this->session->set_flashdata('message', $this->lang->line('project_created_successfully') ? $this->lang->line('project_created_successfully') : "Project created successfully.");
 					$this->session->set_flashdata('message_type', 'success');
 					$this->data['error'] = false;

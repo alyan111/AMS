@@ -239,6 +239,12 @@ class Issues extends CI_Controller
                     $this->session->set_flashdata('message', $this->lang->line('created_successfully') ? $this->lang->line('created_successfully') : "Created successfully.");
                     $this->session->set_flashdata('message_type', 'success');
                     $this->data['error'] = false;
+
+                    push_notifications('task_assignment', [
+                        'saas_id' => $this->session->userdata('saas_id'),
+                        'user_id' => $this->input->post('user')
+                    ]);
+
                     $this->data['message'] = $this->lang->line('created_successfully') ? $this->lang->line('created_successfully') : "Created successfully.";
                     echo json_encode($this->data);
                 } else {
@@ -291,6 +297,12 @@ class Issues extends CI_Controller
                     $this->session->set_flashdata('message_type', 'success');
                     $this->data['data'] = $data;
                     $this->data['error'] = false;
+
+                    push_notifications('task_completion', [
+                        'saas_id' => $this->session->userdata('saas_id'),
+                        'user_id' => $this->input->post('user')
+                    ]);
+
                     $this->data['message'] = $this->lang->line('updated_successfully') ? $this->lang->line('updated_successfully') : "Updated successfully.";
                     echo json_encode($this->data);
                 } else {

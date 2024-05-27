@@ -2860,3 +2860,39 @@ function if_allowd_to_create_new($checking_for)
         return true;
     return false;
 }
+
+function remove_permissions_and_saas_id($string)
+{
+    $name = explode("_permissions_", $string)[0];
+    if ($name[0] === '_')
+        $name = substr($name, 1);
+    if (substr($name, -1) === '_')
+        $name = substr($name, 0, -1);
+    return $name;
+}
+
+
+function get_users_that_can_accept_biometric_requset()
+{
+    $CI =& get_instance();
+    $query = $CI->db->select('type')
+        ->like('value', 'biometric_request_status":1')
+        ->like('type', "_" . $CI->session->userdata('saas_id'))
+        ->get('settings');
+    $permission_roles = [];
+    foreach ($query->result_array() as $value)
+        $permission_roles[] = remove_permissions_and_saas_id($value['type']);
+
+    // $query = $CI->db->select('GROUP_CONCAT(id) AS id_string')
+    $query = $CI->db->select('id')
+        ->from('groups')
+        ->where_in('name', $permission_roles)
+        ->where('saas_id', 8)
+        ->get();
+    $group_ids = $query->result_array();
+    $ids = [];
+    foreach ($group_ids as $value)
+        $ids[] = $value['id'];
+
+    return $ids;
+}

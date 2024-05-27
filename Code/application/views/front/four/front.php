@@ -43,7 +43,6 @@
     <link rel="stylesheet" href='<?= base_url("assets/front/four/css/spacing.css") ?>'>
     <link rel="stylesheet" href='<?= base_url("assets/front/four/css/main.css") ?>'>
     <link rel="stylesheet" href="<?= base_url('assets/front/comman.css') ?>">
-
     <link rel="stylesheet" href="<?= base_url('assets/front/four/css/page_styling.css') ?>">
 
 
@@ -90,7 +89,7 @@
                         <div class="col-6 col-lg-6 col-xl-2">
                             <div class="tp-header-logo tp-header-logo-border">
                                 <a href="<?= base_url() ?>">
-                                    <img src='<?= base_url('assets/uploads/logos/' . full_logo()) ?>' height="50" alt="">
+                                    <img src='<?= base_url('assets2/images/logos/'.full_logo()) ?>' height="50" width="150" alt="">
                                 </a>
                             </div>
                         </div>

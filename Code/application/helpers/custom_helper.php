@@ -1072,7 +1072,7 @@ function get_notifications($user_id = '')
                 $notification_txt = $CI->lang->line('task_assigned_you') ? $notification['notification'] . " " . $CI->lang->line('task_assigned_you') : $notification['notification'] . " task assigned you.";
                 $task = $CI->projects_model->get_tasks('', $notification['type_id']);
                 if ($task) {
-                    $notification_url = base_url('projects/tasks/' . $task[0]['project_id'] . '/' . $notification['type_id']);
+                    $notification_url = base_url('board/tasks/' . $task[0]['project_id']);
                     $extra = '<div class="text-small">
                     ' . ($CI->lang->line('project') ? $CI->lang->line('project') : 'Project') . ': <span class="text-primary">' . $task[0]['project_title'] . '</span> 
                     ' . ($CI->lang->line('task') ? $CI->lang->line('task') : 'Task') . ': <span class="text-primary">' . $task[0]['title'] . '</span> 
@@ -1087,7 +1087,7 @@ function get_notifications($user_id = '')
                 }
 
                 if ($task) {
-                    $notification_url = base_url('projects/tasks/' . $task[0]['project_id'] . '/' . $notification['type_id']);
+                    $notification_url = base_url('board/tasks/' . $task[0]['project_id']);
                     $extra = '<div class="text-small">
                     ' . ($CI->lang->line('project') ? $CI->lang->line('project') : 'Project') . ': <span class="text-primary">' . $task[0]['project_title'] . '</span> 
                     ' . ($CI->lang->line('task') ? $CI->lang->line('task') : 'Task') . ': <span class="text-primary">' . $task[0]['title'] . '</span> 
@@ -1097,7 +1097,7 @@ function get_notifications($user_id = '')
                 $notification_txt = $CI->lang->line('task_file_uploaded') ? $notification['notification'] . " " . $CI->lang->line('task_file_uploaded') : $notification['notification'] . " task file uploaded.";
                 $task = $CI->projects_model->get_tasks('', $notification['type_id']);
                 if ($task) {
-                    $notification_url = base_url('projects/tasks/' . $task[0]['project_id'] . '/' . $notification['type_id']);
+                    $notification_url = base_url('board/tasks/' . $task[0]['project_id']);
                     $extra = '<div class="text-small">
                     ' . ($CI->lang->line('project') ? $CI->lang->line('project') : 'Project') . ': <span class="text-primary">' . $task[0]['project_title'] . '</span> 
                     ' . ($CI->lang->line('task') ? $CI->lang->line('task') : 'Task') . ': <span class="text-primary">' . $task[0]['title'] . '</span> 
@@ -1107,7 +1107,7 @@ function get_notifications($user_id = '')
                 $notification_txt = $CI->lang->line('new_task_comment') ? $CI->lang->line('new_task_comment') . " " . $notification['notification'] : "New task comment " . $notification['notification'];
                 $task = $CI->projects_model->get_tasks('', $notification['type_id']);
                 if ($task) {
-                    $notification_url = base_url('projects/tasks/' . $task[0]['project_id'] . '/' . $notification['type_id']);
+                    $notification_url = base_url('board/tasks/' . $task[0]['project_id']);
                     $extra = '<div class="text-small">
                     ' . ($CI->lang->line('project') ? $CI->lang->line('project') : 'Project') . ': <span class="text-primary">' . $task[0]['project_title'] . '</span> 
                     ' . ($CI->lang->line('task') ? $CI->lang->line('task') : 'Task') . ': <span class="text-primary">' . $task[0]['title'] . '</span> 

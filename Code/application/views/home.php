@@ -67,7 +67,6 @@
       width: 94% !important;
     }
   }
-
 </style>
 <link href="<?= base_url('assets2/vendor/introjs/modern.css') ?>" rel="stylesheet" type="text/css" />
 </head>
@@ -720,7 +719,7 @@
           var count = 1;
           data.forEach(user => {
             var userRow = '<tr>';
-            userRow += '<td style="font-size:12px;"><a href="' + base_url + 'attendance/user_attendance/' + user.user_id + '">' + count + '</a></td>';
+            userRow += '<td style="font-size:12px;"><a href="' + base_url + 'attendance/user_attendance/' + user.user_id + '" onclick="openChildWindow(' + user.user_id + ')">' + count + '</a></td>';
             userRow += '<td style="font-size:12px;">' + user.user + '</td>';
             userRow += '<td style="font-size:12px;">' + user.name + '</td>';
 
@@ -827,10 +826,17 @@
           disableInteraction: true,
           tooltipClass: 'customTooltip'
         }).start().oncomplete(function() {
-          window.location.href=base_url+'settings/roles'
+          window.location.href = base_url + 'settings/roles'
         }).onexit(function() {
           console.log('Second tour exited');
         });
+      }
+      let childWindow;
+
+      function openChildWindow(id) {
+        var screenWidth = window.screen.width;
+        var screenHeight = window.screen.height;
+        window.open('' + base_url + 'attendance/user_attendance/' + id + '', 'childWindow', 'width=' + screenWidth + ',height=' + screenHeight + '');
       }
     </script>
 </body>

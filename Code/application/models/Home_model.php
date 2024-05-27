@@ -80,14 +80,14 @@ class Home_model extends CI_Model
             if (!isset($formattedData[$userId])) {
                 $formattedData[$userId] = [
                     'user_id' => $userId,
-                    'user' => '<a href="' . base_url('attendance/user_attendance/' . $userId) . '">' . $userId . '</a>',
-                    'name' => '<a href="' . base_url('attendance/user_attendance/' . $userId) . '">' . $user . '</a>',
+                    'user' => '<a href="javascript:void(0);" onclick="openChildWindow(' . $userId . ')">' . $userId . '</a>',
+                    'name' => '<a href="javascript:void(0);" onclick="openChildWindow(' . $userId . ')">' . $user . '</a>',
                     'dates' => [],
                 ];
                 $presentArray[$userId] = [
                     'user_id' => $userId,
-                    'user' => '<a href="' . base_url('attendance/user_attendance/' . $userId) . '">' . $userId . '</a>',
-                    'name' => '<a href="' . base_url('attendance/user_attendance/' . $userId) . '">' . $user . '</a>',
+                    'user' => '<a href="javascript:void(0);" onclick="openChildWindow(' . $userId . ')">' . $userId . '</a>',
+                    'name' => '<a href="javascript:void(0);" onclick="openChildWindow(' . $userId . ')">' . $user . '</a>',
                     'dates' => [],
                 ];
             }
@@ -115,8 +115,8 @@ class Home_model extends CI_Model
                 if (!isset($formattedData[$user->employee_id])) {
                     $formattedData[$user->employee_id] = [
                         'user_id' => $user->employee_id,
-                        'user' => '<a href="' . base_url('attendance/user_attendance/' . $user->employee_id) . '">' . $user->employee_id . '</a>',
-                        'name' => '<a href="' . base_url('attendance/user_attendance/' . $user->employee_id) . '">' . $user->first_name . ' ' . $user->last_name . '</a>',
+                        'user' => '<a href="javascript:void(0);" onclick=openChildWindow('.$user->employee_id.')>' . $user->employee_id . '</a>',
+                        'name' => '<a href="javascript:void(0);" onclick=openChildWindow('.$user->employee_id.')>' . $user->first_name . ' ' . $user->last_name . '</a>',
                         'dates' => [],
                     ];
                 }
@@ -126,8 +126,8 @@ class Home_model extends CI_Model
                         $formattedData[$user->employee_id]['dates'][$from][] = '<span class="text-success">L</span>';
                         $leaveArray[$user->employee_id] = [
                             'user_id' => $user->employee_id,
-                            'user' => '<a href="' . base_url('attendance/user_attendance/' . $user->employee_id) . '">' . $user->employee_id . '</a>',
-                            'name' => '<a href="' . base_url('attendance/user_attendance/' . $user->employee_id) . '">' . $user->first_name . ' ' . $user->last_name . '</a>',
+                            'user' => '<a href="javascript:void(0);" onclick="openChildWindow('.$user->employee_id.')">' . $user->employee_id . '</a>',
+                            'name' => '<a href="javascript:void(0);" onclick="openChildWindow('.$user->employee_id.')">' . $user->first_name . ' ' . $user->last_name . '</a>',
                             'dates' => [],
                         ];
                         $leaveArray[$user->employee_id]['dates'][$from][] = '<span class="text-success">L</span>';
@@ -135,8 +135,8 @@ class Home_model extends CI_Model
                         $formattedData[$user->employee_id]['dates'][$from][] = '<span class="text-info">H</span>';
                         $absentArray[$user->employee_id] = [
                             'user_id' => $user->employee_id,
-                            'user' => '<a href="' . base_url('attendance/user_attendance/' . $user->employee_id) . '">' . $user->employee_id . '</a>',
-                            'name' => '<a href="' . base_url('attendance/user_attendance/' . $user->employee_id) . '">' . $user->first_name . ' ' . $user->last_name . '</a>',
+                            'user' => '<a href="javascript:void(0);" onclick="openChildWindow('.$user->employee_id.')">' . $user->employee_id . '</a>',
+                            'name' => '<a href="javascript:void(0);" onclick="openChildWindow('.$user->employee_id.')">' . $user->first_name . ' ' . $user->last_name . '</a>',
                             'dates' => [],
                         ];
                         $absentArray[$user->employee_id]['dates'][$from][] = '<span class="text-info">H</span>';
@@ -144,8 +144,8 @@ class Home_model extends CI_Model
                         $formattedData[$user->employee_id]['dates'][$from][] = '<span class="text-danger">A</span>';
                         $absentArray[$user->employee_id] = [
                             'user_id' => $user->employee_id,
-                            'user' => '<a href="' . base_url('attendance/user_attendance/' . $user->employee_id) . '">' . $user->employee_id . '</a>',
-                            'name' => '<a href="' . base_url('attendance/user_attendance/' . $user->employee_id) . '">' . $user->first_name . ' ' . $user->last_name . '</a>',
+                            'user' => '<a href="javascript:void(0);" onclick="openChildWindow('.$user->employee_id.')">' . $user->employee_id . '</a>',
+                            'name' => '<a href="javascript:void(0);" onclick="openChildWindow('.$user->employee_id.')">' . $user->first_name . ' ' . $user->last_name . '</a>',
                             'dates' => [],
                         ];
                         $absentArray[$user->employee_id]['dates'][$from][] = '<span class="text-danger">A</span>';
@@ -330,7 +330,7 @@ class Home_model extends CI_Model
                         $formattedData[$user->employee_id]['dates'][$from][] = '<span class="text-success">Leave</span>';
                         $leaveArray[$user->employee_id] = [
                             'user_id' => $user->employee_id,
-                            'user' => '<a href="' . base_url('attendance/user_attendance/' . $user->employee_id) . '">' . $user->employee_id . '</a>',
+                            'user' => '<a href="' . base_url('attendance/user_attendance/' . $user->employee_id) . '" >' . $user->employee_id . '</a>',
                             'name' => '<a href="' . base_url('attendance/user_attendance/' . $user->employee_id) . '">' . $user->first_name . ' ' . $user->last_name . '</a>',
                             'dates' => [],
                         ];
@@ -348,7 +348,7 @@ class Home_model extends CI_Model
                         $formattedData[$user->employee_id]['dates'][$from][] = '<span class="text-danger">Absent</span>';
                         $absentArray[$user->employee_id] = [
                             'user_id' => $user->employee_id,
-                            'user' => '<a href="' . base_url('attendance/user_attendance/' . $user->employee_id) . '">' . $user->employee_id . '</a>',
+                            'user' => '<a href="' . base_url('attendance/user_attendance/' . $user->employee_id) . '" >' . $user->employee_id . '</a>',
                             'name' => '<a href="' . base_url('attendance/user_attendance/' . $user->employee_id) . '">' . $user->first_name . ' ' . $user->last_name . '</a>',
                             'dates' => [],
                         ];

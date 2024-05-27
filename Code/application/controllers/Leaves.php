@@ -734,18 +734,6 @@ class Leaves extends CI_Controller
 							$email_template = render_email_template('leave_request', $template_data);
 							send_mail($system_user->email, $email_template[0]['subject'], $email_template[0]['message']);
 
-<<<<<<< HEAD
-						ini_set('display_errors', 1);
-						ini_set('display_startup_errors', 1);
-						error_reporting(E_ALL);
-
-						// // for notificatoin
-						$user_ids = get_users_for_current_level_of_leave($leave_id, $user_id);
-						push_notifications('leave_requested', [
-							'saas_id' => $this->session->userdata('saas_id'),
-							'user_id' => $user_ids,
-						]);
-=======
 							$notification_data = array(
 								'notification' => 'Leave request received',
 								'type' => 'leave_request',
@@ -755,7 +743,6 @@ class Leaves extends CI_Controller
 							);
 							$notification_id = $this->notifications_model->create($notification_data);
 						}
->>>>>>> f323db734252cbb92f5107be9882c017bbb53124
 
 						$this->session->set_flashdata('message', $this->lang->line('created_successfully') ? $this->lang->line('created_successfully') : "Created successfully.");
 						$this->session->set_flashdata('message_type', 'success');
